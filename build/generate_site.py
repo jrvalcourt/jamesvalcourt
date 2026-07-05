@@ -3,10 +3,10 @@ import os
 import re
 from datetime import datetime
 
-SCRATCH_DIR = "/Users/jrvalcourt/.gemini/antigravity/brain/83366732-f2ec-4f7c-8686-854a9e337b23/scratch"
-WP_DATA_DIR = os.path.join(SCRATCH_DIR, "wp_data")
-WORKSPACE_DIR = "/Users/jrvalcourt/Library/CloudStorage/Dropbox/web_sites/valcourt"
-TEMPLATE_PATH = os.path.join(SCRATCH_DIR, "base_template.html")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WP_DATA_DIR = os.path.join(SCRIPT_DIR, "wp_data")
+WORKSPACE_DIR = os.path.dirname(SCRIPT_DIR)
+TEMPLATE_PATH = os.path.join(SCRIPT_DIR, "base_template.html")
 
 def load_json(filename):
     with open(os.path.join(WP_DATA_DIR, filename), 'r', encoding='utf-8') as f:
@@ -28,7 +28,7 @@ def clean_wp_html(html_content):
     html_content = re.sub(pattern, r'/assets/uploads/\1', html_content)
     
     # Remove image size query variables from URLs
-    html_content = re.sub(r'/assets/uploads/([^\s"\'\)>?#]+)\?[a-zA-Z0-9=&;]+', r'/assets/uploads/\1', html_content)
+    html_content = re.sub(r'(/assets/uploads/[^\s"\'\)>?#]+)\?[^\s"\'>]*', r'\1', html_content)
     
     # 2. Rewrite same-domain page/post links to relative root links
     html_content = re.sub(r'https?://(?:www\.)?jamesvalcourt\.com/contact/?', '/contact/', html_content)
@@ -205,20 +205,19 @@ def build_contact_page(page, template):
     
     # Hardcoded beautiful rendering based on parsed output
     methods = [
-        {"title": "Email", "val": "valcourt [at] alumni [dot] harvard [dot] edu", "desc": "Academic & writing inquiries"},
-        {"title": "Twitter", "val": "@jrvalcourt", "link": "https://twitter.com/jrvalcourt", "desc": "Follow me on Twitter"},
-        {"title": "Bicycle Courier", "val": "D.E. Shaw Research, 120 W 45th St, 39th Floor, New York, NY 10036", "desc": "Physical coordinates"},
-        {"title": "Trebuchet", "val": "40.757099, -73.983704", "desc": "Targeting coordinates"},
-        {"title": "What3Words", "val": "plants.agrees.rarely", "link": "https://what3words.com/plants.agrees.rarely", "desc": "Precise location"}
+        {"title": "Email", "val": "valcourt [at] alumni [dot] harvard [dot] edu"},
+        {"title": "BlueSky", "val": "@jrvalcourt.bsky.social", "link": "https://bsky.app/profile/jrvalcourt.bsky.social"},
+        {"title": "Bicycle Courier", "val": "D.E. Shaw Research, 120 W 45th St, 39th Floor, New York, NY 10036"},
+        {"title": "Trebuchet", "val": "40.757099, -73.983704"},
+        {"title": "What3Words", "val": "plants.agrees.rarely", "link": "https://what3words.com/plants.agrees.rarely"}
     ]
-    
+
     for m in methods:
         val_str = f'<a href="{m["link"]}" target="_blank">{m["val"]}</a>' if "link" in m else f'<span>{m["val"]}</span>'
         contact_items_html += f"""
         <li>
             <strong>{m["title"]}</strong>
             {val_str}
-            <small style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;">{m["desc"]}</small>
         </li>
         """
         

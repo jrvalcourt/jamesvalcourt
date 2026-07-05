@@ -1,7 +1,7 @@
 import os
 import re
 
-WORKSPACE_DIR = "/Users/jrvalcourt/Library/CloudStorage/Dropbox/web_sites/valcourt"
+WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EXPECTED_PATHS = [
     "index.html",
@@ -63,8 +63,8 @@ def main():
     # 2. Audit links in all generated html files
     print("\n=== AUDITING RESOURCE LINKS ===")
     for root, dirs, files in os.walk(WORKSPACE_DIR):
-        # Exclude git and raw JSON directories
-        if ".git" in root or ".gemini" in root:
+        # Exclude git internals
+        if ".git" in root:
             continue
         for file in files:
             if file.endswith(".html"):
