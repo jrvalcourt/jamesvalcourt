@@ -123,6 +123,41 @@ blockquote {
     margin: 1.5rem 0;
 }
 
+/* Tables (e.g. WordPress-migrated wp-block-table content) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+table tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:last-child {
+    border-bottom: none;
+}
+
+table td,
+table th {
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    color: var(--text-secondary);
+    vertical-align: top;
+}
+
+table tr:first-child td,
+table th {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
 /* ==========================================================================
    LAYOUT CONTAINERS
    ========================================================================== */
@@ -642,7 +677,7 @@ blockquote {
         top: var(--header-height);
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100vh - var(--header-height));
         background-color: var(--bg-primary);
         z-index: 100;
         display: flex;
