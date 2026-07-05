@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun | James Valcourt</title>
     <meta name="description" content="Fun projects, generators, and satirical phrasebooks by James Valcourt.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
+
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+
     <!-- Theme Toggle Script (Runs immediately to prevent flash of light/dark) -->
     <script>
-        (function() {
+        (function () {
             const storedTheme = localStorage.getItem('theme');
             if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -26,6 +29,7 @@
         })();
     </script>
 </head>
+
 <body>
     <!-- Floating Header Navigation -->
     <header class="site-header">
@@ -34,31 +38,34 @@
                 <span class="logo-name">James Valcourt</span>
                 <span class="logo-title">Scientist / garlic enthusiast</span>
             </a>
-            
+
             <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
                 <span class="hamburger"></span>
             </button>
-            
+
             <nav class="site-nav" id="js-site-nav">
                 <ul>
                     <li><a href="/" class="">Welcome</a></li>
                     <li><a href="/cv/" class="">CV</a></li>
                     <li><a href="/writing/" class="">Writing</a></li>
                     <li><a href="/blog/" class="">Blog</a></li>
-                    <li><a href="/systematic-how-systems-biology-is-transforming-modern-medicine/" class="">Systematic</a></li>
+                    <li><a href="/systematic-how-systems-biology-is-transforming-modern-medicine/"
+                            class="">Systematic</a></li>
                     <li><a href="/fun/" class="active">Fun</a></li>
                     <li><a href="/contact/" class="">Contact</a></li>
                 </ul>
             </nav>
-            
+
             <!-- Dark Mode Toggle Button -->
             <button class="theme-toggle" id="js-theme-toggle" aria-label="Toggle dark/light theme">
                 <!-- Moon icon (shows in light mode) -->
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
                 <!-- Sun icon (shows in dark mode) -->
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
                     <line x1="12" y1="1" x2="12" y2="3"></line>
                     <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -75,40 +82,36 @@
 
     <!-- Main Content Area -->
     <main class="site-main fun-page">
-        
-    <div class="container">
-        <h1>Fun Projects & Satire</h1>
-        <p>A collection of side projects, satirical worksheets, and jargon cheat sheets:</p>
-        
-        <div class="grid-2col" style="margin-top: 2rem;">
-            
-        <div class="card">
-            <h3>Idea Generator</h3>
-            <p>A random generator of cool scientific projects using click chemistry, optogenetics, blockchain, and climate change.</p>
-            <a href="/idea-generator/" class="card-link">Launch Project &rarr;</a>
+
+        <div class="container">
+            <h1>Fun Projects & Satire</h1>
+            <p>A collection of side projects, satirical worksheets, and jargon cheat sheets:</p>
+
+            <div class="grid-2col" style="margin-top: 2rem;">
+
+                <div class="card">
+                    <h3>Idea Generator</h3>
+                    <a href="/idea-generator/" class="card-link">Launch &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h3>Chardonnay Genomics</h3>
+                    <a href="/jcraigvintner/chardonnay_genomics.html" class="card-link">Launch &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h3>Systems Biology Phrase Book</h3>
+                    <a href="/fun/systems-biology-phrase-book/" class="card-link">Launch &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h3>Real Estate Jargon Cheat Sheet</h3>
+                    <a href="/fun/real-estate-jargon-cheat-sheet/" class="card-link">Launch &rarr;</a>
+                </div>
+
+            </div>
         </div>
-        
-        <div class="card">
-            <h3>Chardonnay Genomics</h3>
-            <p>satirical wine genomics preference prediction company: From Bases to Booze.</p>
-            <a href="/jcraigvintner/chardonnay_genomics.html" class="card-link">Launch Project &rarr;</a>
-        </div>
-        
-        <div class="card">
-            <h3>Systems Biology Phrase Book</h3>
-            <p>Translating systems biology jargon into plain English.</p>
-            <a href="/fun/systems-biology-phrase-book/" class="card-link">Launch Project &rarr;</a>
-        </div>
-        
-        <div class="card">
-            <h3>Real Estate Jargon Cheat Sheet</h3>
-            <p>Deciphering agent listings: 'cozy' means small, 'rustic' means falling apart.</p>
-            <a href="/fun/real-estate-jargon-cheat-sheet/" class="card-link">Launch Project &rarr;</a>
-        </div>
-        
-        </div>
-    </div>
-    
+
     </main>
 
     <!-- Footer -->
@@ -140,4 +143,5 @@
         }
     </script>
 </body>
+
 </html>
