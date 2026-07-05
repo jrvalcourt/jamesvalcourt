@@ -43,9 +43,9 @@
     --text-secondary: #a1a5ab;
     --text-muted: #6e7278;
     
-    --accent: #3a9e65; /* Vibrant Emerald */
-    --accent-hover: #4bc380;
-    --accent-light: rgba(58, 158, 101, 0.15);
+    --accent: #4f9d72; /* Muted Sage */
+    --accent-hover: #6cb389;
+    --accent-light: rgba(79, 157, 114, 0.15);
     
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -108,6 +108,11 @@ a {
 
 a:hover {
     color: var(--accent-hover);
+}
+
+/* Links inside body copy need a stronger visual cue than color alone */
+p a, li a, blockquote a {
+    font-weight: 600;
 }
 
 blockquote {
