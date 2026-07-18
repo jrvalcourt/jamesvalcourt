@@ -26,8 +26,8 @@ main_class: generic-page page-whatever
 </div>
 ```
 
-`nav` picks which header link highlights as active (`home`, `cv`, `writing`,
-`blog`, `systematic`, `fun`, `contact`, or blank for none). Blog posts only
+`nav` picks which header link highlights as active (`home`, `cv`, `blog`,
+`fun`, `contact`, or blank for none). Blog posts only
 need a `title:` -- `description` defaults to `Blog post: {title}`, and the
 summary excerpt on `/blog/` is auto-generated (add an `excerpt:` field to
 override it). If two posts land on the same date, add an `order: N` field

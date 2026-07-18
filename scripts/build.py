@@ -19,9 +19,7 @@ DEFAULT_OUT_DIR = REPO_ROOT / "dist"
 NAV_ITEMS = [
     ("home", "Welcome", "/"),
     ("cv", "CV", "/cv/"),
-    ("writing", "Writing", "/writing/"),
     ("blog", "Blog", "/blog/"),
-    ("systematic", "Systematic", "/systematic-how-systems-biology-is-transforming-modern-medicine/"),
     ("fun", "Fun", "/fun/"),
     ("contact", "Contact", "/contact/"),
 ]
