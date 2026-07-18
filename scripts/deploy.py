@@ -17,7 +17,9 @@ import build
 
 REPO_ROOT = build.REPO_ROOT
 DIST_DIR = build.DEFAULT_OUT_DIR
-DEPLOY_BASE_PATH = "/jamesvalcourt"
+# Served from the custom domain root (jamesvalcourt.com), not a /jamesvalcourt
+# subpath, so root-relative links need no prefix.
+DEPLOY_BASE_PATH = ""
 BRANCH = "gh-pages"
 WORKTREE_DIR = REPO_ROOT / ".deploy" / "gh-pages-worktree"
 
