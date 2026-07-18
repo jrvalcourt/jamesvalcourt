@@ -448,6 +448,7 @@ table th {
     transition: var(--transition-smooth);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .card:hover {
@@ -471,6 +472,12 @@ table th {
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--accent);
+}
+
+.card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
 }
 
 /* ==========================================================================
