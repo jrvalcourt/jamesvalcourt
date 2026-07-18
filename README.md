@@ -48,10 +48,30 @@ example.
 4. `python scripts/deploy.py` when you're happy -- publishes to production.
 5. Commit the new source file whenever you like -- committing to `main` never auto-deploys; only step 4 does.
 
+## Editing an existing page, or adding a new one
+
+Existing pages just get hand-edited in place, e.g. `src/pages/cv.html` for
+`/cv/`. To add a brand new top-level page, create `src/pages/your-page.html`
+with the same front-matter block (see above) -- the output URL is derived
+automatically from the file's path (`src/pages/foo.html` -> `/foo/`,
+`src/pages/fun/bar.html` -> `/fun/bar/`, `src/pages/index.html` is the one
+special case that maps to the site root). No routing table to update anywhere
+else. If you want it in the header nav, add it to `NAV_ITEMS` in
+`scripts/build.py`; if you just want it reachable by link (like the cards on
+`/fun/`), link to it from wherever makes sense and leave `nav:` blank.
+
 ## Build vs. deploy
 
 - `python scripts/build.py` -- pure `src/` -> `dist/`. Zero git or network side effects. Safe to run constantly while previewing.
 - `python scripts/deploy.py` -- rebuilds with the production path prefix (`/jamesvalcourt`) baked in, then pushes `dist/` to the `gh-pages` branch via a git worktree at `.deploy/` (gitignored). This is the only command that ever touches git remotes.
+
+**If you ever change the Pages source branch setting** (Settings -> Pages),
+GitHub does not always rebuild from the new branch immediately -- it can
+serve one stale build from the old source for a couple of minutes. If the
+live site looks out of date right after a settings change, force a fresh
+build: `gh api -X POST repos/jrvalcourt/jamesvalcourt/pages/builds`, then
+check `gh api repos/jrvalcourt/jamesvalcourt/pages/builds/latest` and confirm
+the `commit` field matches what you expect before assuming something's wrong.
 
 ## One-time setup (already done, documented for posterity)
 
