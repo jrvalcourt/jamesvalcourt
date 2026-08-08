@@ -1,0 +1,1085 @@
+/* ==========================================================================
+   DESIGN SYSTEM & CSS VARIABLES
+   ========================================================================== */
+:root {
+    /* Color Palette - Light Mode (Warm & Organic) */
+    --bg-primary: #fcfbfa;
+    --bg-secondary: #f4f3f0;
+    --bg-glass: rgba(252, 251, 250, 0.8);
+    --border-color: rgba(44, 46, 48, 0.1);
+    
+    --text-primary: #2c2e30;
+    --text-secondary: #5a5d61;
+    --text-muted: #888b90;
+    
+    --accent: #2b5c43; /* Forest/Sage Green */
+    --accent-hover: #1f4430;
+    --accent-light: rgba(43, 92, 67, 0.1);
+    
+    --shadow-sm: 0 2px 8px rgba(44, 46, 48, 0.05);
+    --shadow-md: 0 8px 24px rgba(44, 46, 48, 0.08);
+    --shadow-lg: 0 16px 48px rgba(44, 46, 48, 0.12);
+    
+    /* Typography */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Lora', Georgia, Cambria, 'Times New Roman', Times, serif;
+    
+    /* Spacing & Layout */
+    --container-width: 900px;
+    --container-wide: 1100px;
+    --header-height: 70px;
+    --border-radius: 12px;
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Dark Mode Overrides - follows the browser/OS setting, no in-page toggle */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #0f1112;
+        --bg-secondary: #17191a;
+        --bg-glass: rgba(15, 17, 18, 0.8);
+        --border-color: rgba(227, 229, 232, 0.1);
+
+        --text-primary: #e3e5e8;
+        --text-secondary: #a1a5ab;
+        --text-muted: #6e7278;
+
+        --accent: #4f9d72; /* Muted Sage */
+        --accent-hover: #6cb389;
+        --accent-light: rgba(79, 157, 114, 0.15);
+
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.5rem; letter-spacing: -0.03em; }
+h2 { font-size: 1.85rem; letter-spacing: -0.02em; margin-top: 2rem; }
+h3 { font-size: 1.4rem; letter-spacing: -0.01em; margin-top: 1.5rem; }
+
+p, li, blockquote {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Links inside body copy need a stronger visual cue than color alone */
+p a, li a, blockquote a {
+    font-weight: 600;
+}
+
+blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin: 1.5rem 0;
+}
+
+/* Tables (e.g. WordPress-migrated wp-block-table content) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+table tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tr:last-child {
+    border-bottom: none;
+}
+
+table td,
+table th {
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    color: var(--text-secondary);
+    vertical-align: top;
+}
+
+table tr:first-child td,
+table th {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.container-wide {
+    width: 100%;
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.site-main {
+    flex-grow: 1;
+    margin-top: calc(var(--header-height) + 2rem);
+    padding-bottom: 4rem;
+}
+
+/* ==========================================================================
+   FLOATING HEADER & NAV
+   ========================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    transition: var(--transition-smooth);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.site-logo {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+}
+
+.logo-name {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.logo-title {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Navigation Links */
+.site-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.site-nav a {
+    font-family: var(--font-sans);
+    font-weight: 550;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+    color: var(--text-primary);
+}
+
+/* Underline Animation */
+.site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease-out;
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hamburger Menu (Mobile) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 110;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    left: 0;
+    transition: var(--transition-smooth);
+}
+
+.hamburger::before { top: -6px; }
+.hamburger::after { bottom: -6px; }
+
+/* Hamburger Open Animation */
+.nav-toggle.active .hamburger { background-color: transparent; }
+.nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+.nav-toggle.active .hamburger::after { transform: rotate(-45deg); bottom: 0; }
+
+/* ==========================================================================
+   PAGE ELEMENTS & STYLING
+   ========================================================================== */
+
+/* Buttons */
+.btn, button.button, button[type="button"] {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff !important;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.btn:hover, button.button:hover, button[type="button"]:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Home Welcome Layout */
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.welcome-image img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--bg-secondary);
+    box-shadow: var(--shadow-md);
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-content .subheading {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+/* Systematic Book Page */
+.book-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.book-cover img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+
+.book-cover img:hover {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Writing Page */
+.writing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.writing-item {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+/* Grid Layouts (Fun, Idea Generator, etc.) */
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--text-muted);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.35rem;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+.card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+/* ==========================================================================
+   BLOG / POST LAYOUT
+   ========================================================================== */
+.post-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.post-meta {
+    font-family: var(--font-sans);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Blog list items */
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.blog-summary {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2.5rem;
+}
+
+.blog-summary h2 {
+    margin-top: 0.5rem;
+    font-size: 1.85rem;
+}
+
+.blog-summary .read-more {
+    font-weight: 600;
+    font-family: var(--font-sans);
+}
+
+/* ==========================================================================
+   SPECIAL PAGES (CV, IDEA GENERATOR, CONTACT)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CV
+   Two-column layout: section label in a left gutter, content on the right.
+   The gutter collapses on narrow screens and in print (see the print block at
+   the bottom of this file, which is what the "Download as PDF" button uses).
+   -------------------------------------------------------------------------- */
+.cv {
+    --cv-gutter: 150px;
+    --cv-gap: 2.5rem;
+}
+
+/* Masthead */
+.cv-masthead {
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--text-primary);
+}
+
+.cv-masthead h1 {
+    font-size: 2.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.cv-tagline {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 0.85rem;
+}
+
+.cv-contact {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+}
+
+.cv-contact li {
+    font-family: inherit;
+    font-size: inherit;
+    margin-bottom: 0;
+}
+
+/* Sections */
+.cv-section {
+    display: grid;
+    grid-template-columns: var(--cv-gutter) 1fr;
+    gap: var(--cv-gap);
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cv-section:last-of-type {
+    border-bottom: none;
+}
+
+.cv-section > h2 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    line-height: 1.5;
+    padding-top: 0.35rem;
+}
+
+.cv-body > *:last-child {
+    margin-bottom: 0;
+}
+
+.cv-lede {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0;
+}
+
+/* Entries (job, degree, project) */
+.cv-entry + .cv-entry {
+    margin-top: 2rem;
+}
+
+.cv-entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.cv-entry-head h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+}
+
+.cv-dates {
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 550;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.cv-role {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 550;
+    margin: 0.15rem 0 0.6rem;
+}
+
+.cv-bullets {
+    list-style: none;
+    margin: 0;
+}
+
+.cv-bullets li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 0.45rem;
+}
+
+.cv-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--accent);
+}
+
+.cv-bullets li:last-child,
+.cv-prose {
+    margin-bottom: 0;
+}
+
+.cv-prose {
+    font-size: 1rem;
+}
+
+/* Publications */
+.cv-subhead {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin: 0 0 0.75rem;
+}
+
+.cv-pubs + .cv-subhead {
+    margin-top: 1.75rem;
+}
+
+.cv-pubs {
+    list-style: none;
+    margin: 0;
+}
+
+.cv-pubs li {
+    font-size: 0.98rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem; /* hanging indent, citation-style */
+    margin-bottom: 0.85rem;
+}
+
+.cv-pubs li:last-child {
+    margin-bottom: 0;
+}
+
+.cv-me {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Awards */
+.cv-awards {
+    list-style: none;
+    margin: 0;
+}
+
+.cv-awards li {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 0.75rem;
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+}
+
+.cv-awards li:last-child {
+    margin-bottom: 0;
+}
+
+.cv-year {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 550;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.75;
+}
+
+.cv-note {
+    color: var(--text-muted);
+}
+
+/* Skills / grouped activities */
+.cv-skills {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.35rem 0;
+    margin: 0;
+}
+
+.cv-skills dt {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.cv-skills dd {
+    font-family: var(--font-serif);
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    margin: 0 0 1rem;
+}
+
+.cv-skills dd:last-child {
+    margin-bottom: 0;
+}
+
+/* Download button */
+.cv-actions {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.cv-actions-note {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 1rem 0 0;
+}
+
+@media (max-width: 768px) {
+    .cv-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .cv-masthead h1 {
+        font-size: 2.1rem;
+    }
+
+    .cv-entry-head {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+}
+
+/* Idea Generator Layout */
+.generator-box {
+    text-align: center;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.generator-box p {
+    font-family: var(--font-sans);
+}
+
+#phrase {
+    color: var(--text-muted);
+    font-size: 1.1rem !important;
+}
+
+#x, #y {
+    font-size: 2.2rem !important;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+}
+
+#for {
+    font-size: 1.25rem !important;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Contact Info Layout */
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-info li {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.contact-info li strong {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.contact-info li span, .contact-info li a {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0;
+    background-color: var(--bg-secondary);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.footer-meta {
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.6rem; }
+    
+    .welcome-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .welcome-image {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .book-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .book-cover {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .grid-2col, .grid-3col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: block;
+    }
+    
+    .site-nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--bg-primary);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        pointer-events: none;
+    }
+    
+    .site-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    .site-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+    
+    .site-nav a {
+        font-size: 1.3rem;
+    }
+}
+
+/* ==========================================================================
+   PRINT
+   Backs the CV page's "Download as PDF" button: printing to PDF renders the
+   same HTML, so the document can't drift out of sync with the page. Must stay
+   last in this file -- it re-points the theme variables at ink-on-paper values
+   and has to win over the prefers-color-scheme: dark block near the top.
+   ========================================================================== */
+@media print {
+    :root {
+        --bg-primary: #fff;
+        --bg-secondary: #fff;
+        --bg-glass: #fff;
+        --border-color: #c8c8c8;
+
+        --text-primary: #000;
+        --text-secondary: #1c1c1c;
+        --text-muted: #555;
+
+        --accent: #1f4430;
+        --accent-hover: #1f4430;
+        --accent-light: transparent;
+
+        --shadow-sm: none;
+        --shadow-md: none;
+        --shadow-lg: none;
+    }
+
+    @page {
+        margin: 0.55in 0.65in;
+    }
+
+    html {
+        font-size: 10pt;
+    }
+
+    body {
+        display: block;
+        background: #fff;
+        min-height: 0;
+    }
+
+    /* Chrome (unlike Safari/Firefox) keeps position: fixed elements on every
+       printed page, so the header has to be removed, not just hidden. */
+    .site-header,
+    .site-footer,
+    .cv-actions,
+    .nav-toggle {
+        display: none !important;
+    }
+
+    .site-main {
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .container,
+    .container-wide {
+        max-width: none;
+        padding: 0;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* On screen, body links are bolded to stand out from surrounding text;
+       on paper that just reads as stray emphasis mid-citation. */
+    p a, li a, blockquote a {
+        font-weight: inherit;
+    }
+
+    /* --- CV --- */
+
+    /* The gutter layout is a grid, and grid fragmentation across printed pages
+       is unreliable; stack the section label above its content instead. */
+    .cv-section {
+        display: block;
+        padding: 0 0 0.8rem;
+        margin-top: 0.9rem;
+        border-bottom: none;
+    }
+
+    .cv-section > h2 {
+        padding-top: 0;
+        margin-bottom: 0.7rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px solid var(--border-color);
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    .cv-masthead {
+        padding-bottom: 1rem;
+        margin-bottom: 0;
+    }
+
+    .cv-masthead h1 {
+        font-size: 2.1rem;
+    }
+
+    .cv-lede {
+        font-size: 1rem;
+    }
+
+    .cv-entry,
+    .cv-pubs li,
+    .cv-awards li,
+    .cv-skills dt,
+    .cv-skills dd {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .cv-entry + .cv-entry {
+        margin-top: 1rem;
+    }
+
+    /* Keep a heading from being orphaned at the foot of a page. */
+    .cv-entry-head,
+    .cv-subhead,
+    .cv-skills dt {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    .cv-bullets li {
+        margin-bottom: 0.25rem;
+    }
+
+    .cv-pubs li,
+    .cv-awards li {
+        margin-bottom: 0.5rem;
+    }
+
+    .cv-skills dd {
+        margin-bottom: 0.6rem;
+    }
+}
