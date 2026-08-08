@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event at the Harvard COOP | James Valcourt</title>
+    <meta name="description" content="Blog post: Event at the Harvard COOP">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Floating Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-name">James Valcourt</span>
+                <span class="logo-title">Scientist / garlic enthusiast</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="site-nav" id="js-site-nav">
+                <ul>
+                    <li><a href="/" class="">Welcome</a></li>
+                    <li><a href="/cv/" class="">CV</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/fun/" class="">Fun</a></li>
+                    <li><a href="/contact/" class="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main blog-post">
+    <article class="container">
+        <header class="post-header">
+            <span class="post-meta">February 06, 2017</span>
+            <h1>Event at the Harvard COOP</h1>
+        </header>
+        <div class="post-content">
+            <p>I&#8217;ll be doing a <a href="http://harvardcoopbooks.bncollege.com/webapp/wcs/stores/servlet/BNCBcalendarEventListView?catalogId=10001&amp;langId=-1&amp;storeId=52084">book signing and discussion</a> for <em>Systematic</em> at the Harvard COOP on Thursday, February 16th at 7:00 PM. The event will be on the third floor, and it&#8217;s free. Hope to see you there!</p>
+        </div>
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 James Valcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script>
+        // Responsive Menu Toggle
+        const navToggle = document.getElementById('js-nav-toggle');
+        const siteNav = document.getElementById('js-site-nav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', () => {
+                siteNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video of Harvard Book Store event | James Valcourt</title>
+    <meta name="description" content="Blog post: Video of Harvard Book Store event">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Floating Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-name">James Valcourt</span>
+                <span class="logo-title">Scientist / garlic enthusiast</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="site-nav" id="js-site-nav">
+                <ul>
+                    <li><a href="/" class="">Welcome</a></li>
+                    <li><a href="/cv/" class="">CV</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/fun/" class="">Fun</a></li>
+                    <li><a href="/contact/" class="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main blog-post">
+    <article class="container">
+        <header class="post-header">
+            <span class="post-meta">March 04, 2017</span>
+            <h1>Video of Harvard Book Store event</h1>
+        </header>
+        <div class="post-content">
+            <p>WGBH was kind enough to film the event I did at the Harvard Book Store a few weeks ago. Check out the video of the talk:</p>
+<div class="jetpack-video-wrapper"><span class="embed-youtube" style="text-align:center; display: block;"><iframe loading="lazy" class="youtube-player" width="840" height="473" src="https://www.youtube.com/embed/we2sJJHR1Mw?version=3&#038;rel=1&#038;showsearch=0&#038;showinfo=1&#038;iv_load_policy=1&#038;fs=1&#038;hl=en-US&#038;autohide=2&#038;wmode=transparent" allowfullscreen="true" style="border:0;" sandbox="allow-scripts allow-same-origin allow-popups allow-presentation allow-popups-to-escape-sandbox"></iframe></span></div>
+        </div>
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 James Valcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script>
+        // Responsive Menu Toggle
+        const navToggle = document.getElementById('js-nav-toggle');
+        const siteNav = document.getElementById('js-site-nav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', () => {
+                siteNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

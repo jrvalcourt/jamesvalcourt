@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#8220;The Science of Humans&#8221; at the LA Times Festival of Books | James Valcourt</title>
+    <meta name="description" content="Blog post: &#8220;The Science of Humans&#8221; at the LA Times Festival of Books">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Floating Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-name">James Valcourt</span>
+                <span class="logo-title">Scientist / garlic enthusiast</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="site-nav" id="js-site-nav">
+                <ul>
+                    <li><a href="/" class="">Welcome</a></li>
+                    <li><a href="/cv/" class="">CV</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/fun/" class="">Fun</a></li>
+                    <li><a href="/contact/" class="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main blog-post">
+    <article class="container">
+        <header class="post-header">
+            <span class="post-meta">March 17, 2017</span>
+            <h1>&#8220;The Science of Humans&#8221; at the LA Times Festival of Books</h1>
+        </header>
+        <div class="post-content">
+            <p>I&#8217;ll be doing a panel with <a href="http://maryroach.net">Mary Roach</a>, <a href="http://www.prhspeakers.com/speaker/luke-dittrich">Luke Dittrich</a>, and <a href="https://www.adampiore.com">Adam Piore</a> on &#8220;The Science of Humans&#8221; at the LA Times Festival of Books. The event is on <a href="http://sched.co/A1iD">April 22 on the USC campus</a>. Admission to the festival is free, but this panel requires a free ticket. Hope to see you there! More info about the event and tickets here: <a href="http://sched.co/A1iD">http://sched.co/A1iD</a>.</p>
+        </div>
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 James Valcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script>
+        // Responsive Menu Toggle
+        const navToggle = document.getElementById('js-nav-toggle');
+        const siteNav = document.getElementById('js-site-nav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', () => {
+                siteNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

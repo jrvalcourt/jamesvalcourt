@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DerekBench | James Valcourt</title>
+    <meta name="description" content="Blog post: DerekBench">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Floating Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-name">James Valcourt</span>
+                <span class="logo-title">Scientist / garlic enthusiast</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="site-nav" id="js-site-nav">
+                <ul>
+                    <li><a href="/" class="">Welcome</a></li>
+                    <li><a href="/cv/" class="">CV</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/fun/" class="">Fun</a></li>
+                    <li><a href="/contact/" class="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main blog-post">
+    <article class="container">
+        <header class="post-header">
+            <span class="post-meta">August 08, 2026</span>
+            <h1>DerekBench</h1>
+        </header>
+        <div class="post-content">
+<p>It&#8217;s easy to lose the plot in the overwhelming proliferation of LLM and agentic benchmarks. In the last few months, I&#8217;ve found my sense of wonder diminish as I watch the numbers tick steadily up, but I don&#8217;t think this complacency is entirely appropriate. Real-world economic impact is probably the most important yardstick in the end, but it&#8217;s hard to translate a 10% boost in ARC-AGI-7 Verified Final-Bench Pro into GDP or jobs or layoffs or human misery.</p>
+<p>Recently, I have had a different benchmark in mind when I try out a new model, especially the cheaper ones:</p>
+<blockquote>Who would I trust more to carry out everyday tasks: this model, or Derek, the median guy I went to high school with?</blockquote>
+<p>(I have someone in mind. His name is not Derek.)</p>
+<p>Derek is, by 2020 standards, fine. I like Derek! He&#8217;s hardworking enough, smart-ish, competent-ish if trained, decently pleasant to talk to &#8212; not the sort of guy you&#8217;d want to run your billion-dollar startup, but you could probably have him write an email or put together a slide deck, and you&#8217;d get something usable. Derek&#8217;s in a better place than a lot of us.</p>
+<p>Derek would get absolutely destroyed by any major LLM available today on any task that takes place entirely on a computer. I don&#8217;t think this was true a year ago, and it is unquestionably true now, even for &#8220;Flash&#8221; class models.</p>
+<p>Don&#8217;t get me wrong &#8212; LLMs are different from humans. Crucially, they are more prone to making stuff up when they don&#8217;t know the answer, or at least I think I&#8217;d be better able to tell when Derek is lying than when Claude is. And as much as I dislike the recent trend to argue that humans provide &#8220;taste,&#8221; I suspect there is some truth to that, at least for now. But for most tasks, I am still surprised to wake up in a world where machines have humans beat. It&#8217;s going to take some getting used to.</p>
+<p>It really is beginning to feel that all computationally verifiable work has fallen or is about to &#8212; if you can check the answer programmatically, agents are superhuman. Math, for example, seems to be crossing the inflection point. Other fields, such as drug discovery, are safe for the moment because there is still no amount of compute that can completely replace rat PK or Caco-2 or an IC50 in PBMCs. Those barriers will fall too, slowly, though they won&#8217;t be felled by LLMs. Perhaps the last remaining bastion of humanity is the interface with meatspace, at least until neural networks can drive humanoid robots well enough to build a house or stock grocery store shelves at a price competitive with human labor.</p>
+<p>Then Derek&#8212;and the rest of us&#8212;might well and truly be cooked.</p>
+        </div>
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 James Valcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script>
+        // Responsive Menu Toggle
+        const navToggle = document.getElementById('js-nav-toggle');
+        const siteNav = document.getElementById('js-site-nav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', () => {
+                siteNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

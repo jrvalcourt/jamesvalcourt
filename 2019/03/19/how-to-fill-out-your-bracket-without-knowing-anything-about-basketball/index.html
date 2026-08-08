@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to fill out your bracket without knowing anything about basketball | James Valcourt</title>
+    <meta name="description" content="Blog post: How to fill out your bracket without knowing anything about basketball">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- Floating Header Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="site-logo">
+                <span class="logo-name">James Valcourt</span>
+                <span class="logo-title">Scientist / garlic enthusiast</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Toggle menu" id="js-nav-toggle">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav class="site-nav" id="js-site-nav">
+                <ul>
+                    <li><a href="/" class="">Welcome</a></li>
+                    <li><a href="/cv/" class="">CV</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/fun/" class="">Fun</a></li>
+                    <li><a href="/contact/" class="">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="site-main blog-post">
+    <article class="container">
+        <header class="post-header">
+            <span class="post-meta">March 19, 2019</span>
+            <h1>How to fill out your bracket without knowing anything about basketball</h1>
+        </header>
+        <div class="post-content">
+            <p>I&#8217;m tired of trying to pretend that I follow college basketball, and looking at an empty bracket fills me with anxiety. What&#8217;s a sports-adjacent person to do? Well, if you&#8217;re like me, you simulate the entire tournament using win probabilities from 538 and let the pseudorandom whims of fate decide your bracket&#8217;s destiny. If you want to deploy RoboBracket3000 in your own office pool, it&#8217;s a short python3 script available on GitHub: <a href="https://github.com/jrvalcourt/marchmadness">https://github.com/jrvalcourt/marchmadness</a></p>
+        </div>
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 James Valcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Scripts -->
+    <script>
+        // Responsive Menu Toggle
+        const navToggle = document.getElementById('js-nav-toggle');
+        const siteNav = document.getElementById('js-site-nav');
+        if (navToggle && siteNav) {
+            navToggle.addEventListener('click', () => {
+                siteNav.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
